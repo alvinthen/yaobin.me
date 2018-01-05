@@ -42,6 +42,46 @@ const createTagPages = (createPage, edges) => {
     });
 };
 
+const createCategoryPages = (createPage, edges) => {
+  const categoryTemplate = path.resolve(`src/templates/tags.js`);
+  const posts = {};
+
+  edges
+    .forEach(({ node }) => {
+      if (node.frontmatter.categories) {
+        node.frontmatter.categories
+          .forEach(category => {
+            if (!posts[category]) {
+              posts[category] = [];
+            }
+            posts[category].push(node);
+          });
+      }
+    });
+
+  createPage({
+    path: '/categories',
+    component: categoryTemplate,
+    context: {
+      posts
+    }
+  });
+
+  Object.keys(posts)
+    .forEach(category => {
+      const post = posts[category];
+      createPage({
+        path: `/categories/${category}`,
+        component: categoryTemplate,
+        context: {
+          posts,
+          post,
+          tag: category
+        }
+      })
+    });
+};
+
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
@@ -56,6 +96,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           id
           frontmatter {
             title
+            tags
+            categories
           }
           fields {
             slug
@@ -102,6 +144,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     });
 
     createTagPages(createPage, posts);
+    createCategoryPages(createPage, posts);
 
     return posts;
   })

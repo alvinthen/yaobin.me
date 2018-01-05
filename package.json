@@ -1,10 +1,10 @@
 {
-  "name": "gatsby-starter-blog",
-  "description": "Starter Gatsby Blog",
+  "name": "yaobin.me",
+  "description": "https://www.yaobin.me",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Yao Bin <alvinthen890703@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby-starter-blog/issues"
+    "url": "https://github.com/alvinthen/yaobin.me/issues"
   },
   "dependencies": {
     "gatsby": "^1.9.146",
@@ -35,7 +35,7 @@
     "gh-pages": "^1.1.0",
     "prettier": "^1.9.2"
   },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
+  "homepage": "https://github.com/alvinthen/yaobin.me",
   "keywords": [
     "gatsby"
   ],
@@ -43,7 +43,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/alvinthen/yaobin.me.git"
   },
   "scripts": {
     "dev": "gatsby develop",
