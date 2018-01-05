@@ -4,7 +4,6 @@ import Link from 'gatsby-link';
 export default function Tags({ pathContext }) {
   const { posts, post, tag } = pathContext;
   if (tag) {
-    console.log(post)
     return (
       <div>
         <h1>
