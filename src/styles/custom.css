@@ -1,0 +1,18 @@
+body {
+  font-family: "Camphor", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+.title, body, button, h1, h2, h3, h4, h5, h6, input, select, textarea {
+  font-family: "Camphor", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
+}
+
+.comments-container #disqus_thread:before, .entry+.list-container:before, .entry-header:after, .entry-nav-links:before, .footer:before, .prev-entry~.next-entry:before, .site-header:after {
+  border-bottom: .11111em solid #89cff0;
+}
+
+.entry-content a {
+  border-bottom: .01em solid #3284c5;
+  color: #3284c5;
+}
