@@ -17,4 +17,5 @@ Finally I got my blog up, so let's just fill this in with my resolutions for 201
 * Sleep earlier, like before 12am
 * Find victim to practice coaching skill
 * Read and read, and read
+* Improve my Korean
 * Lose weight (this has to stay every year, no?)
