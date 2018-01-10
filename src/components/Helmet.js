@@ -54,7 +54,7 @@ export default ({ post, siteMetadata }) => {
     ]);
   }
   return (
-    <Helmet>
+    <Helmet title={`${post.frontmatter.title} | ${siteMetadata.title}`}>
       {/* General tags */}
       <meta name="description" content={description} />
       <meta name="image" content={image} />
