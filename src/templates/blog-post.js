@@ -103,9 +103,13 @@ class BlogPostTemplate extends React.Component {
           </nav>
         }
         {process.env.NODE_ENV === 'production' &&
-          <FacebookProvider appId="2176625045898163">
-            <Comments href={`${this.props.data.site.siteMetadata.siteUrl}${post.fields.slug}`} width="700" />
-          </FacebookProvider>
+          <div className="comments-container">
+            <div id="disqus_thread">
+              <FacebookProvider appId="2176625045898163">
+                <Comments href={`${this.props.data.site.siteMetadata.siteUrl}${post.fields.slug}`} width="100%" />
+              </FacebookProvider>
+            </div>
+          </div>
         }
       </main>
     )
