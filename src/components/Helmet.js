@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 
 export default ({ post, siteMetadata }) => {
   const URL = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : '';
-  const title = `${post.frontmatter.title} | ${siteMetadata.siteTitle}`;
+  const title = `${post.frontmatter.title} | ${siteMetadata.title}`;
   const description = post.frontmatter.excerpt || post.excerpt;
   const image = post.frontmatter.cover
     ? `${URL}${post.frontmatter.cover.childImageSharp.resize.src}`
