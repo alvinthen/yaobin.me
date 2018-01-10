@@ -3,7 +3,7 @@ module.exports = {
     title: 'Yaobin',
     author: 'Yao Bin',
     description: 'Software engineer from Malaysia, coding from backend to frontend, at any cafés. ',
-    siteUrl: 'https://www.yaobin.me',
+    siteUrl: 'https://yaobin.me',
   },
   pathPrefix: '/',
   plugins: [

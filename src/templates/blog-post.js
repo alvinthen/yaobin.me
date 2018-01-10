@@ -104,7 +104,7 @@ class BlogPostTemplate extends React.Component {
         }
         {process.env.NODE_ENV === 'production' &&
           <FacebookProvider appId="2176625045898163">
-            <Comments href={`${process.env.URL}${post.fields.slug}`} width="700" />
+            <Comments href={`${this.props.data.site.siteMetadata.siteUrl}${post.fields.slug}`} width="700" />
           </FacebookProvider>
         }
       </main>
@@ -120,6 +120,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
