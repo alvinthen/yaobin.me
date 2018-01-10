@@ -1,16 +1,15 @@
 import React from 'react'
-import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import FacebookProvider, { Comments } from 'react-facebook';
 
 import BlogHeader from '../components/BlogHeader'
+import Helmet from '../components/Helmet'
 import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
     const post = this.props.data.markdownRemark
-    const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const author = get(this.props, 'data.site.siteMetadata.author')
     const { next, prev } = this.props.pathContext;
     const tags = post.frontmatter.tags || [];
@@ -18,7 +17,7 @@ class BlogPostTemplate extends React.Component {
 
     return (
       <main className="main">
-        <Helmet title={`${post.frontmatter.title} | ${siteTitle}`} />
+        <Helmet siteMetadata={this.props.data.site.siteMetadata} post={post} />
         <article lang="en" className="entry">
           <BlogHeader
             title={post.frontmatter.title}
@@ -138,6 +137,13 @@ export const pageQuery = graphql`
         dateTime: date
         tags
         categories
+        cover {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+            }
+          }
+        }
       }
     }
   }

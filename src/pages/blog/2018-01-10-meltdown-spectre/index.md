@@ -4,6 +4,7 @@ date: "2018-01-10T16:29:45+0800"
 categories: ['Tech']
 tags: ['Security']
 excerpt: Still not a fan of updating your devices? Think twice, you are most certainly affected by the Meltdown and Spectre vulnerabilities, which could be exploited to steal sensitive data from your smartphone, laptops and desktops.
+cover: meltdown-spectre.png
 ---
 
 ## TL;DR
