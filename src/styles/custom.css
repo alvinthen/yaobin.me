@@ -16,3 +16,7 @@ body {
   border-bottom: .01em solid #3284c5;
   color: #3284c5;
 }
+
+.fb-comments {
+  margin-top: 24px;
+}

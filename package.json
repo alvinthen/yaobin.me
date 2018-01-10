@@ -27,6 +27,7 @@
     "gatsby-transformer-remark": "^1.7.25",
     "gatsby-transformer-sharp": "^1.6.16",
     "lodash": "^4.17.4",
+    "react-facebook": "^4.2.1",
     "react-helmet": "^5.2.0",
     "react-responsive-grid": "^0.3.4"
   },

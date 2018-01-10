@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
+import FacebookProvider, { Comments } from 'react-facebook';
 
 import BlogHeader from '../components/BlogHeader'
 import { rhythm, scale } from '../utils/typography'
@@ -102,6 +103,11 @@ class BlogPostTemplate extends React.Component {
             </div>
           </nav>
         }
+        {process.env.NODE_ENV === 'production' &&
+          <FacebookProvider appId="2176625045898163">
+            <Comments href={`${process.env.URL}${post.fields.slug}`} width="700" />
+          </FacebookProvider>
+        }
       </main>
     )
   }
@@ -122,6 +128,9 @@ export const pageQuery = graphql`
       html
       timeToRead
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         excerpt
         title
