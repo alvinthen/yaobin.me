@@ -1,12 +1,12 @@
 import React from 'react';
 
-export default (props) => (
+export default ({ siteMetadata, post }) => (
   <header className="header-container">
     <div className="header entry-header">
       <div className="header-info">
-        <h1 className="title">{props.title}</h1>
+        <h1 className="title">{post.title}</h1>
         <p className="subtitle">
-          {props.excerpt}
+          {post.frontmatter.excerpt || post.excerpt}
         </p>
       </div>
 
@@ -19,7 +19,7 @@ export default (props) => (
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
           <span className="screen-reader">Posted on </span>
-          <time className="date" dateTime={props.dateTime}>{props.date}</time>
+          <time className="date" dateTime={post.dateTime}>{post.date}</time>
         </span>
 
         <span className="byline">
@@ -28,7 +28,7 @@ export default (props) => (
             <path d="M16,6.37A4,4,0,1,1,12.63,3,4,4,0,0,1,16,6.37Z"></path>
           </svg>
           <span className="screen-reader"> by </span>
-          <a href="/authors/muniftanjim">{props.author}</a>
+          <a href="#">{siteMetadata.author}</a>
         </span>
 
         <span className="reading-time">
@@ -36,9 +36,28 @@ export default (props) => (
             <circle cx="12" cy="12" r="10"></circle>
             <polyline points="12 6 12 12 15 15"></polyline>
           </svg>
-          {props.timeToRead} min read
+          {post.timeToRead} min read
         </span>
       </div>
     </div>
   </header>
 );
+
+export const headerFragment = graphql`
+  fragment BlogHeader_siteMetadata on Site {
+    siteMetadata {
+      author
+    }
+  }
+
+  fragment BlogHeader_post on MarkdownRemark {
+    timeToRead
+    excerpt
+    frontmatter {
+      excerpt
+      title
+      date(formatString: "YYYY, MMM DD")
+      dateTime: date
+    }
+  }
+`;

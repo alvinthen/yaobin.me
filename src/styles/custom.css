@@ -20,3 +20,7 @@ body {
 .fb-comments {
   margin-top: 24px;
 }
+
+.main-menu a.current {
+  pointer-events: all;
+}

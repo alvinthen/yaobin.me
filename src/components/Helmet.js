@@ -7,10 +7,10 @@ export default ({ post, siteMetadata }) => {
   const description = post.frontmatter.excerpt || post.excerpt;
   const image = post.frontmatter.cover
     ? `${URL}${post.frontmatter.cover.childImageSharp.resize.src}`
-    : '/myface.jpg';
+    : `${URL}/myface.jpg`;
   const postURL = `${URL}${post.fields.slug}`;
   const blogURL = `${URL}/blog/`;
-  const alternateName = 'Yaobin';
+  const alternateName = siteMetadata.author;
 
   const schemaOrgJSONLD = [
     {
@@ -54,7 +54,8 @@ export default ({ post, siteMetadata }) => {
     ]);
   }
   return (
-    <Helmet title={`${post.frontmatter.title} | ${siteMetadata.title}`}>
+    <Helmet>
+      <title>{title}</title>
       {/* General tags */}
       <meta name="description" content={description} />
       <meta name="image" content={image} />
@@ -72,14 +73,14 @@ export default ({ post, siteMetadata }) => {
       <meta property="og:image" content={image} />
       <meta
         property="fb:app_id"
-        content={"2176625045898163"}
+        content={siteMetadata.fbAppId}
       />
 
       {/* Twitter Card tags */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta
         name="twitter:creator"
-        content={"@yaobinme"}
+        content={siteMetadata.twitter}
       />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
@@ -87,3 +88,33 @@ export default ({ post, siteMetadata }) => {
     </Helmet>
   );
 }
+
+export const helmetFragment = graphql`
+  fragment Helmet_siteMetadata on Site {
+    siteMetadata {
+      siteUrl
+      title
+      twitter
+      fbAppId
+      author
+    }
+  }
+
+  fragment Helmet_post on MarkdownRemark {
+    excerpt
+    fields {
+      slug
+    }
+    frontmatter {
+      excerpt
+      title
+      cover {
+        childImageSharp {
+          resize(width: 1200) {
+            src
+          }
+        }
+      }
+    }
+  }
+`;

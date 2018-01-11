@@ -5,28 +5,19 @@ import FacebookProvider, { Comments } from 'react-facebook';
 
 import BlogHeader from '../components/BlogHeader'
 import Helmet from '../components/Helmet'
-import { rhythm, scale } from '../utils/typography'
 
 class BlogPostTemplate extends React.Component {
   render() {
-    const post = this.props.data.markdownRemark
-    const author = get(this.props, 'data.site.siteMetadata.author')
+    const { markdownRemark: post, site: { siteMetadata } } = this.props.data
     const { next, prev } = this.props.pathContext;
     const tags = post.frontmatter.tags || [];
     const categories = post.frontmatter.categories || [];
 
     return (
       <main className="main">
-        <Helmet siteMetadata={this.props.data.site.siteMetadata} post={post} />
+        <Helmet post={post} siteMetadata={siteMetadata} />
         <article lang="en" className="entry">
-          <BlogHeader
-            title={post.frontmatter.title}
-            author={author}
-            date={post.frontmatter.date}
-            dateTime={post.frontmatter.dateTime}
-            timeToRead={post.timeToRead}
-            excerpt={post.frontmatter.excerpt || post.excerpt}
-          />
+          <BlogHeader post={post} siteMetadata={siteMetadata} />
           <div className="entry-content" dangerouslySetInnerHTML={{ __html: post.html }} />
           {(tags.length > 0 || categories.length > 0) &&
             <footer className="entry-footer-container">
@@ -105,8 +96,8 @@ class BlogPostTemplate extends React.Component {
         {process.env.NODE_ENV === 'production' &&
           <div className="comments-container">
             <div id="disqus_thread">
-              <FacebookProvider appId="2176625045898163">
-                <Comments href={`${this.props.data.site.siteMetadata.siteUrl}${post.fields.slug}`} width="100%" />
+              <FacebookProvider appId={siteMetadata.fbAppId}>
+                <Comments href={`${siteMetadata.siteUrl}${post.fields.slug}`} width="100%" />
               </FacebookProvider>
             </div>
           </div>
@@ -122,34 +113,23 @@ export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     site {
       siteMetadata {
-        title
-        author
         siteUrl
+        fbAppId
       }
+      ...Helmet_siteMetadata
+      ...BlogHeader_siteMetadata
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
-      id
       html
-      timeToRead
-      excerpt
       fields {
         slug
       }
       frontmatter {
-        excerpt
-        title
-        date(formatString: "YYYY, MMM DD")
-        dateTime: date
         tags
         categories
-        cover {
-          childImageSharp {
-            resize(width: 1200) {
-              src
-            }
-          }
-        }
       }
+      ...Helmet_post
+      ...BlogHeader_post
     }
   }
 `

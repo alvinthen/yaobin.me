@@ -4,6 +4,12 @@ module.exports = {
     author: 'Yao Bin',
     description: 'Software engineer from Malaysia, coding from backend to frontend, at any cafés. ',
     siteUrl: 'https://yaobin.me',
+    twitter: '@yaobinme',
+    instagram: 'yaobin.me',
+    facebook: 'yaobin.me',
+    email: 'alvinthen890703@gmail.com',
+    github: 'alvinthen',
+    fbAppId: '2176625045898163',
   },
   pathPrefix: '/',
   plugins: [

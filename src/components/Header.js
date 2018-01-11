@@ -14,3 +14,12 @@ export default ({ siteMetadata }) => (
     </div>
   </header>
 );
+
+export const headerFragment = graphql`
+  fragment Header_siteMetadata on Site {
+    siteMetadata {
+      author
+      description
+    }
+  }
+`;
