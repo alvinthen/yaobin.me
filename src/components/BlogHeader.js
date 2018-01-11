@@ -4,7 +4,7 @@ export default ({ siteMetadata, post }) => (
   <header className="header-container">
     <div className="header entry-header">
       <div className="header-info">
-        <h1 className="title">{post.title}</h1>
+        <h1 className="title">{post.frontmatter.title}</h1>
         <p className="subtitle">
           {post.frontmatter.excerpt || post.excerpt}
         </p>
@@ -19,7 +19,7 @@ export default ({ siteMetadata, post }) => (
             <line x1="3" y1="10" x2="21" y2="10"></line>
           </svg>
           <span className="screen-reader">Posted on </span>
-          <time className="date" dateTime={post.dateTime}>{post.date}</time>
+          <time className="date" dateTime={post.frontmatter.dateTime}>{post.frontmatter.date}</time>
         </span>
 
         <span className="byline">
