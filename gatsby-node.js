@@ -1,6 +1,5 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
-const parseFilepath = require(`parse-filepath`)
 
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/templates/tags.js`);
@@ -156,25 +155,10 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
 
   if (node.internal.type === `MarkdownRemark` && getNode(node.parent).internal.type === `File`) {
     const fileNode = getNode(node.parent)
-    const parsedFilePath = parseFilepath(fileNode.relativePath)
-    // Add slugs for docs pages
-    let slug;
-    if (fileNode.sourceInstanceName === `pages`) {
-      if (parsedFilePath.name !== `index` && parsedFilePath.dir !== ``) {
-        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}/`
-      } else if (parsedFilePath.dir === ``) {
-        slug = `/${parsedFilePath.name}/`
-      } else {
-        slug = `/${parsedFilePath.dir}/`
-      }
-    }
-
-    if (slug) {
-      createNodeField({
-        name: `slug`,
-        node,
-        value: slug,
-      })
-    }
+    createNodeField({
+      name: `slug`,
+      node,
+      value: `/${fileNode.relativeDirectory}/`
+    })
   }
 };
