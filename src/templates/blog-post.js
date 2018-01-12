@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
-import FacebookProvider, { Comments } from 'react-facebook';
+import { DiscussionEmbed } from 'disqus-react';
 
 import BlogHeader from '../components/BlogHeader'
 import Helmet from '../components/Helmet'
@@ -93,12 +93,17 @@ class BlogPostTemplate extends React.Component {
             </div>
           </nav>
         }
-        {process.env.NODE_ENV === 'production' &&
+        {process.env.NODE_ENV !== 'production' &&
           <div className="comments-container">
             <div id="disqus_thread">
-              <FacebookProvider appId={siteMetadata.fbAppId}>
-                <Comments href={`${siteMetadata.siteUrl}${post.fields.slug}`} width="100%" />
-              </FacebookProvider>
+              <DiscussionEmbed
+                shortname="yaobin"
+                config={{
+                  url: siteMetadata.siteUrl,
+                  identifier: post.id,
+                  title: post.frontmatter.title,
+                }}
+              />
             </div>
           </div>
         }
@@ -120,11 +125,13 @@ export const pageQuery = graphql`
       ...BlogHeader_siteMetadata
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      id
       html
       fields {
         slug
       }
       frontmatter {
+        title
         tags
         categories
       }

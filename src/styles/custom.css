@@ -17,10 +17,6 @@ body {
   color: #3284c5;
 }
 
-.fb-comments {
-  margin-top: 24px;
-}
-
 .main-menu a.current {
   pointer-events: all;
 }
