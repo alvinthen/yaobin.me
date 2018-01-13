@@ -93,7 +93,7 @@ class BlogPostTemplate extends React.Component {
             </div>
           </nav>
         }
-        {process.env.NODE_ENV !== 'production' &&
+        {process.env.NODE_ENV === 'production' &&
           <div className="comments-container">
             <div id="disqus_thread">
               <DiscussionEmbed
