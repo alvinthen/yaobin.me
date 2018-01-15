@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
-import { DiscussionEmbed } from 'disqus-react';
+import ReactDisqusComments from 'react-disqus-comments';
 
 import BlogHeader from '../components/BlogHeader'
 import Helmet from '../components/Helmet'
@@ -94,18 +94,13 @@ class BlogPostTemplate extends React.Component {
           </nav>
         }
         {process.env.NODE_ENV === 'production' &&
-          <div className="comments-container">
-            <div id="disqus_thread">
-              <DiscussionEmbed
-                shortname="yaobin"
-                config={{
-                  url: siteMetadata.siteUrl,
-                  identifier: post.id,
-                  title: post.frontmatter.title,
-                }}
-              />
-            </div>
-          </div>
+          <ReactDisqusComments
+            className="comments-container"
+            shortname="yaobin"
+            identifier={post.id}
+            title={post.frontmatter.title}
+            url={`${siteMetadata.siteUrl}${post.fields.slug}`}
+          />
         }
       </main>
     )

@@ -154,11 +154,22 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark` && getNode(node.parent).internal.type === `File`) {
-    const fileNode = getNode(node.parent)
-    createNodeField({
-      name: `slug`,
-      node,
-      value: `/${fileNode.relativeDirectory}/`
-    })
+    const fileNode = getNode(node.parent);
+    if (fileNode.sourceInstanceName === 'pages') {
+      let slug;
+      if (fileNode.relativeDirectory)
+        slug = `/${fileNode.relativeDirectory}/`;
+      else
+        slug = `/${fileNode.name}/`;
+
+      if (slug) {
+        createNodeField({
+          name: `slug`,
+          node,
+          value: slug,
+        })
+      }
+    }
+
   }
 };
