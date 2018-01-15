@@ -4,6 +4,8 @@ import Favicon from '../components/Favicon';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
+import '../styles/syntax.css';
+
 export default ({ data: { site: { siteMetadata } }, children, location: { pathname } }) => (
   <div className={pathname === '/' || pathname === '/blog' ? 'home' : 'page'}>
     <div className="site">
