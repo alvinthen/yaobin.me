@@ -1,84 +1,47 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
-const createTagPages = (createPage, edges) => {
+const createTagPages = (createPage, edges, title) => {
   const tagTemplate = path.resolve(`src/templates/tags.js`);
-  const posts = {};
+  const tags = {};
 
-  edges
-    .forEach(({ node }) => {
-      if (node.frontmatter.tags) {
-        node.frontmatter.tags
-          .forEach(tag => {
-            if (!posts[tag]) {
-              posts[tag] = [];
-            }
-            posts[tag].push(node);
-          });
-      }
-    });
+  edges.forEach(({ node }) => {
+    // Quick and dirty hack
+    if (node.frontmatter[`${title.toLowerCase()}`]) {
+      node.frontmatter[`${title.toLowerCase()}`].forEach((tag) => {
+        if (!tags[tag]) {
+          tags[tag] = [];
+        }
+        tags[tag].push(node);
+      });
+    }
+  });
 
+  const tagsPath = `/${title.toLowerCase()}/`
   createPage({
-    path: '/tags',
+    path: tagsPath,
     component: tagTemplate,
     context: {
-      posts
+      slugPrefix: tagsPath,
+      tags,
+      title,
     }
   });
 
-  Object.keys(posts)
-    .forEach(tagName => {
-      const post = posts[tagName];
-      createPage({
-        path: `/tags/${tagName}`,
-        component: tagTemplate,
-        context: {
-          posts,
-          post,
-          tag: tagName
-        }
-      })
-    });
-};
-
-const createCategoryPages = (createPage, edges) => {
-  const categoryTemplate = path.resolve(`src/templates/tags.js`);
-  const posts = {};
-
-  edges
-    .forEach(({ node }) => {
-      if (node.frontmatter.categories) {
-        node.frontmatter.categories
-          .forEach(category => {
-            if (!posts[category]) {
-              posts[category] = [];
-            }
-            posts[category].push(node);
-          });
+  Object.keys(tags).forEach(tagName => {
+    const posts = tags[tagName];
+    const tagPath = `${tagsPath}${tagName}`;
+    createPage({
+      path: tagPath,
+      component: tagTemplate,
+      context: {
+        slug: tagPath,
+        posts,
+        tag: tagName,
+        title,
       }
-    });
-
-  createPage({
-    path: '/categories',
-    component: categoryTemplate,
-    context: {
-      posts
-    }
+    })
   });
-
-  Object.keys(posts)
-    .forEach(category => {
-      const post = posts[category];
-      createPage({
-        path: `/categories/${category}`,
-        component: categoryTemplate,
-        context: {
-          posts,
-          post,
-          tag: category
-        }
-      })
-    });
 };
 
 exports.createPages = ({ boundActionCreators, graphql }) => {
@@ -95,6 +58,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
           id
           frontmatter {
             title
+            date(formatString: "YYYY, MMM DD")
+            dateTime: date
             tags
             categories
           }
@@ -142,8 +107,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       });
     });
 
-    createTagPages(createPage, posts);
-    createCategoryPages(createPage, posts);
+    createTagPages(createPage, posts, 'Tags');
+    createTagPages(createPage, posts, 'Categories');
 
     return posts;
   })

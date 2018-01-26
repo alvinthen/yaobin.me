@@ -8,7 +8,7 @@ body {
   font-family: "Camphor", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
 }
 
-.comments-container #disqus_thread:before, .entry+.list-container:before, .entry-header:after, .entry-nav-links:before, .footer:before, .prev-entry~.next-entry:before, .site-header:after {
+.comments-container #disqus_thread:before, .entry+.home-sections-container .home-sections:before, .entry-nav:before, .footer:before, .header:after, .home-section+.home-section:before, .prev-entry~.next-entry:before {
   border-bottom: .11111em solid #89cff0;
 }
 
@@ -19,4 +19,8 @@ body {
 
 .main-menu a.current {
   pointer-events: all;
+}
+
+.term-cloud li {
+  margin-bottom: 0;
 }
