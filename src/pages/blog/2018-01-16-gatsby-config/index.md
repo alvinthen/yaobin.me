@@ -1,13 +1,13 @@
 ---
 title: "Exploring the project structure of Gatsby"
 date: "2018-01-16T02:02:30+0800"
-categories: ['Code']
+categories: ['Code', 'Getting into Gatsby']
 tags: ['Gatsby']
 cover: gatsby.png
-excerpt: This is part one of an upcoming Gatsby series, explaining briefly on gatsby-config.js, plugins, and nodes.
+excerpt: Explore the project structure of Gatsby, start by choosing a starter, and configuring it.
 ---
 
-> This is part one of an upcoming Gatsby series, explaining briefly on gatsby-config.js, plugins, and nodes.
+> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/Getting%20into%20Gatsby).
 
 There seems to be a trend where blogs built with [Gatsby](https://www.gatsbyjs.org) must have a post written about it.
 
@@ -20,16 +20,16 @@ This is really a pain point for me, I have been trying to get my blog set up sin
 
 The available options are either too complex, too simple, poor layout or unaesthetic theme. Or perhaps, I just don't like the default eslint used by Gatsby _(why template literals everywhere?)_.
 
-I ended up with the blog [starter](https://github.com/gatsbyjs/gatsby-starter-blog) provided by Gatsby themselves, then work my way from there. If you take a look at the [source codes](https://github.com/alvinthen/yaobin.me/tree/b707d3c788371beec3f0d87c44cc60cb331b9db9) of this site, I don't even know how to describe it, it's just not up to my standard.
+I ended up with the blog [starter](https://github.com/gatsbyjs/gatsby-starter-blog) provided by Gatsby themselves, then work my way from there. If you'd take a look at the [source codes](https://github.com/alvinthen/yaobin.me/tree/b707d3c788371beec3f0d87c44cc60cb331b9db9) of this site, I don't even know how to describe it, it's just not up to my standard.
 
 `// TODO: Clean up the mess`
 
-### Lesson learnt
+#### Lesson learnt
 Screw all advanced starters (yes, of course they'd help if they're opinionated, but then again, whose opinions should we value?).
 
 Experiment around with any of the basic starters, get familiar, understand these terms `layout`, `template`, how to use `graphql` in `components`, what's `gatsby-node.js` all about.
 
-Here's what you should know after completing any Gatsby tutorials.
+Here's what I thought you should know after completing any Gatsby tutorials.
 
 ### Start with the basic starter
 Any starter will do, use the basic one, in most cases, the starters available will not fit your UI requirements. I'd recommend to start fresh and look into the structure.
@@ -68,7 +68,7 @@ This is where you should configure the plugins you use. These plugins help to tr
 
 A GraphQL schema is then created based on the nodes after running all the plugins, available for your React components via GraphQL queries.
 
-Gatsby comes with GraphiQL for you to test your queries. You can access it via http://localhost:8000/___graphql after runnning `gatsby develop`.
+Gatsby comes with GraphiQL for you to test your queries. You can access it via http://localhost:8000/___graphql after running `gatsby develop`.
 
 Here's what it looks like after the plugins read your Markdowns and transformed them.
 

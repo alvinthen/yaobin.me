@@ -17,7 +17,7 @@ const createTagPages = (createPage, edges, title) => {
     }
   });
 
-  const tagsPath = `/${title.toLowerCase()}/`
+  const tagsPath = `/${title.toLowerCase()}`
   createPage({
     path: tagsPath,
     component: tagTemplate,
@@ -30,7 +30,7 @@ const createTagPages = (createPage, edges, title) => {
 
   Object.keys(tags).forEach(tagName => {
     const posts = tags[tagName];
-    const tagPath = `${tagsPath}${tagName}`;
+    const tagPath = `${tagsPath}/${tagName}`;
     createPage({
       path: tagPath,
       component: tagTemplate,
@@ -50,6 +50,7 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
   return graphql(`{
     allMarkdownRemark(
+      filter: { fields: { slug: { ne: "/about" } } }
       sort: { order: DESC, fields: [frontmatter___date] }
       limit: 1000
     ) {
@@ -69,10 +70,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
         }
       }
     }
-    about: markdownRemark(fields: { slug: { eq: "/about/" }}) {
-      frontmatter {
-        title
-      }
+    about: markdownRemark(fields: { slug: { eq: "/about" }}) {
+      id
     }
   }`)
   .then(result => {
@@ -80,19 +79,18 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(result.errors)
     }
 
+    const { about, allMarkdownRemark: { edges: posts } } = result.data;
+
     // Create About page
-    const about = result.data.about;
     createPage({
-      path: '/about/',
+      path: '/about',
       component: blogPostTemplate,
       context: {
-        slug: '/about/',
+        slug: '/about',
       }
     });
 
-
     // Create pages for each markdown file.
-    const posts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.fields.slug.includes('/blog/'));
     posts.forEach(({ node }, index) => {
       const prev = index === 0 ? null : posts[index - 1].node;
       const next = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -122,10 +120,16 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
     const fileNode = getNode(node.parent);
     if (fileNode.sourceInstanceName === 'pages') {
       let slug;
-      if (fileNode.relativeDirectory)
-        slug = `/${fileNode.relativeDirectory}/`;
-      else
-        slug = `/${fileNode.name}/`;
+      if (fileNode.relativeDirectory) {
+        // We'll use the path to the MD file as the slug.
+        // eg: http://localhost:8000/blog/my-first-post
+        slug = `/${fileNode.relativeDirectory}`;
+      }
+      else {
+        // If the MD file is at src/pages, we'll use the filename instead.
+        // eg: http://localhost:8000/about
+        slug = `/${fileNode.name}`;
+      }
 
       if (slug) {
         createNodeField({
@@ -135,6 +139,5 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
         })
       }
     }
-
   }
 };

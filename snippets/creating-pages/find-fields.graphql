@@ -1,0 +1,17 @@
+{
+  allMarkdownRemark {
+    edges {
+      node {
+        parent {
+          ... on File {
+            relativeDirectory
+            name
+          }
+        }
+        fields {
+          slug
+        }
+      }
+    }
+  }
+}

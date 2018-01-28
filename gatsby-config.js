@@ -41,6 +41,12 @@ module.exports = {
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
           'gatsby-remark-external-links',
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              directory: `${__dirname}/snippets/`,
+            },
+          },
         ],
       },
     },

@@ -5,6 +5,7 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 import '../styles/syntax.css';
+import '../styles/fonts/fira_code.css';
 
 export default ({ data: { site: { siteMetadata } }, children, location: { pathname } }) => (
   <div className={pathname === '/' || pathname === '/blog' ? 'home' : 'page'}>

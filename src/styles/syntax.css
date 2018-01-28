@@ -4,10 +4,10 @@
  * @author Lea Verou
  */
  code[class*="language-"],
- pre[class*="language-"] {
+ pre[class*="language-"] code {
    color: #ABB2BF;
    background: none;
-   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   font-family: 'Fira Code', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace !important;
    text-align: left;
    white-space: pre;
    word-spacing: normal;

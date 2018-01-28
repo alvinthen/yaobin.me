@@ -1,0 +1,30 @@
+{
+  "data": {
+    "allMarkdownRemark": {
+      "edges": [
+        {
+          "node": {
+            "parent": {
+              "relativeDirectory": "",
+              "name": "about"
+            },
+            "fields": {
+              "slug": "/about"
+            }
+          }
+        },
+        {
+          "node": {
+            "parent": {
+              "relativeDirectory": "blog/my-first-post",
+              "name": "index"
+            },
+            "fields": {
+              "slug": "/blog/my-first-post"
+            }
+          }
+        }
+      ]
+    }
+  }
+}
