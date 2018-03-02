@@ -117,15 +117,33 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   const { createNodeField } = boundActionCreators
 
   if (node.internal.type === `MarkdownRemark` && getNode(node.parent).internal.type === `File`) {
+    if (node.frontmatter.slug) {
+      createNodeField({
+        name: `slug`,
+        node,
+        value: node.frontmatter.slug,
+      });
+      return;
+    }
+
     const fileNode = getNode(node.parent);
     if (fileNode.sourceInstanceName === 'pages') {
       let slug;
       if (fileNode.relativeDirectory) {
-        // We'll use the path to the MD file as the slug.
-        // eg: http://localhost:8000/blog/my-first-post
-        slug = `/${fileNode.relativeDirectory}`;
-      }
-      else {
+        // Remove date stamp in front, it's only useful for arranging our files/folders
+        const paths = fileNode.relativeDirectory.split('/');
+        const directParent = paths.pop();
+        const dateString = directParent.substring(0, 10);
+
+        if (isNaN(new Date(dateString).valueOf())) {
+          // We'll use the path to the MD file as the slug.
+          // eg: http://localhost:8000/blog/my-first-post
+          slug = `/${fileNode.relativeDirectory}`;
+        } else {
+          // Remove the trailing hypen after the dateString
+          slug = `/${paths.join('/')}/${directParent.substring(11)}`;
+        }
+      } else {
         // If the MD file is at src/pages, we'll use the filename instead.
         // eg: http://localhost:8000/about
         slug = `/${fileNode.name}`;
