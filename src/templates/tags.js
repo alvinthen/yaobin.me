@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'gatsby-link';
 import _ from 'lodash';
 
+import Helmet from "react-helmet";
+
 const Container = ({ children }) => (
   <main id="main" className="main">
     {children}
@@ -47,7 +49,7 @@ const TermCloudContainer = ({ tags, slugPrefix }) => {
           const size = minSize + (sizeStep * (tags[tag].length - minCount))
           return (
             <li key={tag}>
-              <Link to={`${slugPrefix}${tag}`} style={{ fontSize: `${size}em` }}>
+              <Link to={`${slugPrefix}/${tag}`} style={{ fontSize: `${size}em` }}>
                 {tag}
               </Link>
             </li>
@@ -71,34 +73,54 @@ export default function Tags({ pathContext }) {
   if (tag) {
     return (
       <Container>
+        <Helmet>
+          <title>{title === 'Tags' ? 'Tag' : 'Category' }: {tag}</title>
+        </Helmet>
         <Header title={title} tag={tag} />
         <ListContainer>
-        {posts.map(({ id, frontmatter, fields }) => (
-          <li className="list-item" key={id}>
-            <article>
-              <div className="meta">
-                <span>
-                <span className="screen-reader">Posted on </span>
-                <time dateTime={frontmatter.dateTime}>{frontmatter.date}</time>
-                </span>
-              </div>
-              <header className="list-item-header">
-                <h3 className="list-item-title">
-                  <Link to={fields.slug}>
-                    {frontmatter.title}
-                  </Link>
-                </h3>
-              </header>
-            </article>
-          </li>
-        ))}
+          {posts.map(({ id, frontmatter, fields }) => (
+            <li className="list-item" key={id}>
+              <article>
+                <div className="meta">
+                  <span>
+                  <span className="screen-reader">Posted on </span>
+                  <time dateTime={frontmatter.dateTime}>{frontmatter.date}</time>
+                  </span>
+                </div>
+                <header className="list-item-header">
+                  <h3 className="list-item-title">
+                    <Link to={fields.slug}>
+                      {frontmatter.title}
+                    </Link>
+                  </h3>
+                </header>
+              </article>
+            </li>
+          ))}
         </ListContainer>
+        <nav className="entry-nav-container">
+          <div className="entry-nav">
+            <div className="prev-entry">
+              <Link to={title === 'Tags' ? '/tags' : '/categories' }>
+                <span>
+                  <svg className="icon" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+                    <line x1="20" y1="12" x2="4" y2="12"></line>
+                    <polyline points="10 18 4 12 10 6"></polyline>
+                  </svg>
+                  &nbsp;Back to {title === 'Tags' ? 'Tags' : 'Categories' }
+                </span>
+              </Link>
+            </div>
+          </div>
+        </nav>
       </Container>
-
     );
   }
   return (
     <Container>
+      <Helmet>
+        <title>{title}</title>
+      </Helmet>
       <Header title={title} />
       <TermCloudContainer tags={tags} slugPrefix={slugPrefix} />
     </Container>
