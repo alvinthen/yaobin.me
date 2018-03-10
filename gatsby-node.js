@@ -1,5 +1,6 @@
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
+const urlize = require('urlize').urlize;
 
 const createTagPages = (createPage, edges, title) => {
   const tagTemplate = path.resolve(`src/templates/tags.js`);
@@ -10,9 +11,12 @@ const createTagPages = (createPage, edges, title) => {
     if (node.frontmatter[`${title.toLowerCase()}`]) {
       node.frontmatter[`${title.toLowerCase()}`].forEach((tag) => {
         if (!tags[tag]) {
-          tags[tag] = [];
+          tags[tag] = {
+            slug: urlize(tag),
+            posts: [],
+          };
         }
-        tags[tag].push(node);
+        tags[tag].posts.push(node);
       });
     }
   });
@@ -29,8 +33,8 @@ const createTagPages = (createPage, edges, title) => {
   });
 
   Object.keys(tags).forEach(tagName => {
-    const posts = tags[tagName];
-    const tagPath = `${tagsPath}/${tagName}`;
+    const posts = tags[tagName].posts;
+    const tagPath = `${tagsPath}/${urlize(tagName)}`;
     createPage({
       path: tagPath,
       component: tagTemplate,

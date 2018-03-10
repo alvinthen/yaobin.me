@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import get from 'lodash/get'
 import ReactDisqusComments from 'react-disqus-comments';
+import { urlize } from 'urlize';
 
 import BlogHeader from '../components/BlogHeader'
 import Helmet from '../components/Helmet'
@@ -31,7 +32,7 @@ class BlogPostTemplate extends React.Component {
                     </span>
                     <span className="screen-reader">Categories: </span>
                     {categories.map((category) => (
-                      <Link key={category} className="category" to={`/categories/${category}`}>
+                      <Link key={category} className="category" to={`/categories/${urlize(category)}`}>
                         {category}
                       </Link>
                     ))}
@@ -47,7 +48,7 @@ class BlogPostTemplate extends React.Component {
                     </span>
                     <span className="screen-reader">Tags: </span>
                     {tags.map((tag) => (
-                      <Link key={tag} className="tag" to={`/tags/${tag}`}>
+                      <Link key={tag} className="tag" to={`/tags/${urlize(tag)}`}>
                         {tag}
                       </Link>
                     ))}

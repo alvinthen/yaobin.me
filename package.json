@@ -32,7 +32,8 @@
     "lodash": "^4.17.4",
     "react-disqus-comments": "^1.1.1",
     "react-helmet": "^5.2.0",
-    "react-responsive-grid": "^0.3.4"
+    "react-responsive-grid": "^0.3.4",
+    "urlize": "^0.2.1"
   },
   "devDependencies": {
     "eslint": "^4.13.1",

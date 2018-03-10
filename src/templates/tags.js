@@ -33,23 +33,23 @@ const TermCloudContainer = ({ tags, slugPrefix }) => {
   const maxSize = 2.0, minSize = 1.0;
   const sizeSpread = maxSize - minSize;
 
-  let maxCount = -Infinity, minCount = Infinity
+  let maxCount = -Infinity, minCount = Infinity;
   Object.keys(tags).forEach((tag) => {
-    if (tags[tag].length > maxCount) maxCount = tags[tag].length
-    if (tags[tag].length < minCount) minCount = tags[tag].length
+    if (tags[tag].posts.length > maxCount) maxCount = tags[tag].posts.length;
+    if (tags[tag].posts.length < minCount) minCount = tags[tag].posts.length;
   })
-  const countSpread = maxCount - minCount
-  let sizeStep = 0
-  if (countSpread > 0) sizeStep = sizeSpread / countSpread
+  const countSpread = maxCount - minCount;
+  let sizeStep = 0;
+  if (countSpread > 0) sizeStep = sizeSpread / countSpread;
 
   return (
     <div className="term-cloud-container">
       <ul className="term-cloud">
         {_.shuffle(Object.keys(tags)).map(tag => {
-          const size = minSize + (sizeStep * (tags[tag].length - minCount))
+          const size = minSize + (sizeStep * (tags[tag].posts.length - minCount))
           return (
-            <li key={tag}>
-              <Link to={`${slugPrefix}/${tag}`} style={{ fontSize: `${size}em` }}>
+            <li key={tags[tag].slug}>
+              <Link to={`${slugPrefix}/${tags[tag].slug}`} style={{ fontSize: `${size}em` }}>
                 {tag}
               </Link>
             </li>
