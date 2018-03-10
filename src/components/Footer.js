@@ -49,7 +49,7 @@ export default ({ siteMetadata }) => (
         </nav>
       </div>
       <div className="copyright">
-        <p>© 2018 Yao Bin Then # powered by&nbsp;
+        <p>© 2018 Yaobin Then # powered by&nbsp;
           <a href="https://www.gatsbyjs.org/">GatsbyJS</a>
           &nbsp;# theme inspired by&nbsp;
           <a href="https://minimo.netlify.com">minimo</a>

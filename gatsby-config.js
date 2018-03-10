@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Yaobin',
-    author: 'Yao Bin',
+    author: 'Yaobin',
     description: 'Software engineer from Malaysia, coding from backend to frontend, at any cafés. ',
     siteUrl: 'https://yaobin.me',
     twitter: '@yaobinme',
