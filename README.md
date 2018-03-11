@@ -1,8 +1,6 @@
-# gatsby-starter-blog
-Gatsby starter for creating a blog
+Source code for https://yaobin.me
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
-`gatsby new gatsby-blog https://github.com/gatsbyjs/gatsby-starter-blog`
+# To run in development
+`$ yarn dev`
 
-## Running in development
-`gatsby develop`
+[![Netlify](https://www.netlify.com/img/global/badges/netlify-color-accent.svg)](https://www.netlify.com "Netlify")
