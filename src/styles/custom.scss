@@ -53,7 +53,15 @@ body code {
   padding: 0.1em 0;
 }
 
-body code::before, body code::after {
-  letter-spacing: -0.2em;
-  content: " ";
+code {
+  &:before, &:after {
+    letter-spacing: -0.2em;
+    content: " ";
+  }
+
+  pre & {
+    &:before, &:after {
+      content: "";
+    }
+  }
 }

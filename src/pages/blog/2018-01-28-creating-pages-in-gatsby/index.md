@@ -6,10 +6,10 @@ tags: ['Gatsby']
 excerpt: Creating pages in Gatsby can be easy, and can be complicated too! This is the minimal code you'll need to create a blog, with content from Markdown files.
 ---
 
-> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/Getting%20into%20Gatsby).
+> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/getting-into-gatsby).
 
 #### Recap
-We've set up our Gatsby project, configured it to read Markdown files from the directory, talked briefly about what plugins do. [See the full article here](/blog/2018-01-16-gatsby-config/).
+We've set up our Gatsby project, configured it to read Markdown files from the directory, talked briefly about what plugins do. [See the full article here](/blog/gatsby-config/).
 
 # Two methods to create pages in Gatsby
 

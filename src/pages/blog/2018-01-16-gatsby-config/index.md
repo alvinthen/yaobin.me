@@ -7,7 +7,7 @@ cover: gatsby.png
 excerpt: Explore the project structure of Gatsby, start by choosing a starter, and configuring it.
 ---
 
-> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/Getting%20into%20Gatsby).
+> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/getting-into-gatsby).
 
 There seems to be a trend where blogs built with [Gatsby](https://www.gatsbyjs.org) must have a post written about it.
 

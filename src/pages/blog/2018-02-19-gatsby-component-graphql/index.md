@@ -6,6 +6,8 @@ tags: ['Gatsby', 'GraphQL']
 excerpt: Gatsby by default only support GraphQL query in components that directly rendered/invoked by Gatsby, these include components in `layouts`, `pages`, and components used as templates when calling the bound action creator `createPage`.
 ---
 
+> This is part of a series of Gatsby posts focusing on what I've learnt while setting up this blog, [see other related posts in the series here](/categories/getting-into-gatsby).
+
 # Using GraphQL in Gatsby components
 
 Gatsby by default only support GraphQL query in components that directly rendered/invoked by Gatsby, these include components in `layouts`, `pages`, and components used as templates when calling the bound action creator `createPage`.
