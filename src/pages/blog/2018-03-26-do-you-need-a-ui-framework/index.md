@@ -43,4 +43,6 @@ On native part, we almost by default handcraft the UI components. It's always be
 
 In future posts, I will share on scaling React Native components to support multiple screen sizes, and also my progress on refactoring this site into proper React components, so stay tuned!
 
+__Update:__ Post on scaling React Native components is available [here](/blog/react-native-support-multiple-screen-sizes).
+
 (Should I implement RSS? Let me know down below!)
