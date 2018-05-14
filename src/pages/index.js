@@ -79,15 +79,6 @@ class BlogIndex extends React.Component {
                     </li>
                   )
                 })}
-                <li className="list-item">
-                  <article>
-                    <header className="list-item-header">
-                      <h3 className="list-item-title">
-                        <code>// TODO: Get a logo</code>
-                      </h3>
-                    </header>
-                  </article>
-                </li>
               </ul>
             </div>
           </section>
