@@ -49,10 +49,10 @@ export default ({ siteMetadata }) => (
         </nav>
       </div>
       <div className="copyright">
-        <p>© 2018 Yaobin Then # powered by&nbsp;
-          <a href="https://www.gatsbyjs.org/">GatsbyJS</a>
-          &nbsp;# theme inspired by&nbsp;
-          <a href="https://minimo.netlify.com">minimo</a>
+        <p>© 2018 Yaobin Then
+          <br /># logo created by <a href="https://www.linkedin.com/in/ng-yi-yang-4946a710b/">Yiyang Ng</a>
+          <br /># theme inspired by <a href="https://minimo.netlify.com">minimo</a>
+          <br /># powered by <a href="https://www.gatsbyjs.org/">GatsbyJS</a>
         </p>
       </div>
     </div>

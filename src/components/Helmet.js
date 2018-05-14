@@ -7,7 +7,7 @@ export default ({ post, siteMetadata }) => {
   const description = post.frontmatter.excerpt || post.excerpt;
   const image = post.frontmatter.cover
     ? `${URL}${post.frontmatter.cover.childImageSharp.resize.src}`
-    : `${URL}/myface.jpg`;
+    : `${URL}/YB.JPG`;
   const postURL = `${URL}${post.fields.slug}`;
   const blogURL = `${URL}/blog/`;
   const alternateName = siteMetadata.author;

@@ -4,9 +4,8 @@ date: '2018-01-04T13:24:26+0800'
 excerpt: 'A full stack developer mostly based in Malaysia'
 ---
 
-![Banner](./banner.png "Taken in Jeongbang Waterfall, Seogwipo, Jeju-do, South Korea")
-
-_Yes, I'm the one on the right!_
+![Banner](/YB.JPG "Taken outside Monster Pie, Busan, South Korea")
+_Taken outside Monster Pie, Busan, South Korea. Actually, it wasn't open that day._
 
 I'm a programmer/software engineer/full stack developer, whatever you call it, mostly based in Selangor, Malaysia. I'm currently assuming the role of CTO in [Taessina PLT](http://www.taessina.com), where we architect and build solutions.
 
