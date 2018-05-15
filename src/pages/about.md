@@ -1,5 +1,5 @@
 ---
-title: 'full stack developer from Malaysia'
+title: 'Full stack developer from Malaysia'
 date: '2018-01-04T13:24:26+0800'
 ---
 
