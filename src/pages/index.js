@@ -12,7 +12,7 @@ class BlogIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.getQuote();
+    // this.getQuote();
   }
 
   getQuote() {
