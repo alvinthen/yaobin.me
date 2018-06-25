@@ -55,9 +55,11 @@
 
  /* Inline code */
  :not(pre) > code[class*="language-"] {
-   padding: .1em;
+   padding: .2em;
    border-radius: .3em;
    white-space: normal;
+   background: #E1F5FE;
+   color: #212121;
  }
 
  .token.comment,
