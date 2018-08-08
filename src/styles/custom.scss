@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Average+Sans');
+
 body {
-  font-family: "Camphor", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
+  font-family: "Average Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
 .title, body, button, h1, h2, h3, h4, h5, h6, input, select, textarea {
-  font-family: "Camphor", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
+  font-family: "Average Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Cantarell, "Helvetica Neue", "Siyam Rupali", sans-serif;
 }
 
 .comments-container #disqus_thread:before, .entry+.home-sections-container .home-sections:before, .entry-nav:before, .footer:before, .header:after, .home-section+.home-section:before, .prev-entry~.next-entry:before {

@@ -1,11 +1,10 @@
 import Typography from 'typography'
-import '../styles/camphor.scss';
 import '../styles/minimo.css';
 import '../styles/custom.scss';
 
 const typography = new Typography({
-  bodyFontFamily: ['Camphor'],
-  headerFontFamily: ['Camphor'],
+  bodyFontFamily: ['Average Sans'],
+  headerFontFamily: ['Average Sans'],
 })
 
 // Hot reload typography in development.
