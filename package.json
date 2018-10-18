@@ -23,6 +23,7 @@
     "gatsby-remark-embed-youtube": "^0.0.7",
     "gatsby-remark-external-links": "^0.0.4",
     "gatsby-remark-images": "^1.5.36",
+    "gatsby-remark-katex": "^1.0",
     "gatsby-remark-prismjs": "^1.2.11",
     "gatsby-remark-responsive-iframe": "^1.4.16",
     "gatsby-remark-smartypants": "^1.4.10",
