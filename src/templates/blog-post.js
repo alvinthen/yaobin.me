@@ -8,6 +8,13 @@ import BlogHeader from '../components/BlogHeader'
 import Helmet from '../components/Helmet'
 
 class BlogPostTemplate extends React.Component {
+  componentDidMount() {
+    (window.adsbygoogle = window.adsbygoogle || []).push({
+      google_ad_client: "ca-pub-1902375535724633",
+      enable_page_level_ads: true
+    });
+  }
+
   render() {
     const { markdownRemark: post, site: { siteMetadata } } = this.props.data
     const { next, prev } = this.props.pathContext;

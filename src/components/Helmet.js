@@ -85,6 +85,7 @@ export default ({ post, siteMetadata }) => {
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     </Helmet>
   );
 }
