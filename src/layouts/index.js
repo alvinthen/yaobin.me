@@ -7,8 +7,10 @@ import Footer from '../components/Footer';
 import '../styles/syntax.scss';
 import '../styles/fonts/fira_code.css';
 
+const pagesToShowHeader = ['/', '/blog', '/blog/'];
+
 export default ({ data: { site: { siteMetadata } }, children, location: { pathname } }) => (
-  <div className={pathname === '/' || pathname === '/blog' ? 'home' : 'page'}>
+  <div className={pagesToShowHeader.includes(pathname) ? 'home' : 'page'}>
     <div className="site">
       <Favicon />
       <Header siteMetadata={siteMetadata} />
