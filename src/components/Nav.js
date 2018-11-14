@@ -20,7 +20,7 @@ export default () => (
         </Link>
       </li>
       <li>
-        <a href="https://github.com/alvinthen/yaobin.me">Repo</a>
+        <a href="https://github.com/alvinthen/yaobin.me" target="_blank">Repo</a>
       </li>
     </ul>
   </nav>
