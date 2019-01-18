@@ -7,7 +7,7 @@ module.exports = {
     twitter: '@yaobinme',
     instagram: 'yaobin.me',
     facebook: 'yaobin.me',
-    email: 'alvinthen890703@gmail.com',
+    email: 'me@yaobin.me',
     github: 'alvinthen',
     fbAppId: '2176625045898163',
   },
