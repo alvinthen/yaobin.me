@@ -6,9 +6,7 @@ tags: ['React', 'Angular']
 excerpt: Considering which framework to go? You're at the right place.
 ---
 
-I have the opportunity to develop a webapp using Angular. It wasn't a smooth ride coming from React background. Hence, I'm putting up a short series of React vs Angular, comparing how to achieve the same thing using different JS stack.
-
-The first part of the series, we'll be looking at high level comparison, then on upcoming posts we'll compare how these two technologies on building the same UI.
+I have the opportunity to develop a webapp using Angular. It wasn't a smooth ride coming from React background. In this article, we'll be looking at how to achieve the same outcome in React vs Angular.
 
 The usual saying, comparing Angular to React, it's like comparing apple to orange. Okay, apples and oranges aside, let's get things started.
 
@@ -72,5 +70,3 @@ If you've been using Flow, TypeScript wouldn't be any issue for you. You can, of
 
 # Should you React or Angular?
 As usual, I'd recommend to try both, or at least go through their tutorials, and figure out which do you prefer, which you are happier to develop in. At the end of the day, you'll be able to produce the same webapp.
-
-In part 2 of this series, we'll be comparing React and Angular by functionalities, and components, such as how to build a login form, how to do routing, and more to come. Expect more codes to come!
