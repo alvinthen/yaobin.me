@@ -1,10 +1,10 @@
 // gatsby-node.js
-exports.createPages = async ({ boundActionCreators, graphql }) => {
+exports.createPages = async ({ actions, graphql }) => {
   // Get the template we created!
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`); // Get the template
 
   // This is the action to tell Gatsby to create the pages for us
-  const { createPage } = boundActionCreators;
+  const { createPage } = actions;
 
   try {
     // First we get all the pages that are not the About page

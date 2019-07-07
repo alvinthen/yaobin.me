@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 
 export default () => (
   <nav id="main-menu" className="main-menu-container" aria-label="Main Menu">
     <ul className="main-menu">
       <li>
-        <Link exact activeClassName="current" to="/">
+        <Link activeClassName="current" to="/">
           Home
         </Link>
       </li>

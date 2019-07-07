@@ -1,5 +1,6 @@
 // src/templates/blog-post.js
 import React from 'react'
+import { graphql } from 'gatsby'
 
 export default ({ data: { markdownRemark: post } }) => {
   return (

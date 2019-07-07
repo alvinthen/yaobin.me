@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import { graphql } from 'gatsby'
 
 export default ({ post, siteMetadata }) => {
   const URL = process.env.NODE_ENV === 'production' ? siteMetadata.siteUrl : '';

@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
 import ReactDisqusComments from 'react-disqus-comments';
 import { urlize } from 'urlize';
@@ -17,7 +17,7 @@ class BlogPostTemplate extends React.Component {
 
   render() {
     const { markdownRemark: post, site: { siteMetadata } } = this.props.data
-    const { next, prev } = this.props.pathContext;
+    const { next, prev } = this.props.pageContext;
     const tags = post.frontmatter.tags || [];
     const categories = post.frontmatter.categories || [];
 
@@ -118,7 +118,7 @@ class BlogPostTemplate extends React.Component {
 export default BlogPostTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query($slug: String!) {
     site {
       siteMetadata {
         siteUrl

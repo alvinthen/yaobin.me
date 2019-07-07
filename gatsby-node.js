@@ -48,8 +48,8 @@ const createTagPages = (createPage, edges, title) => {
   });
 };
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ actions, graphql }) => {
+  const { createPage } = actions;
 
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
   return graphql(`{
@@ -117,8 +117,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   .catch(e => console.error(e))
 };
 
-exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
-  const { createNodeField } = boundActionCreators
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions
 
   if (node.internal.type === `MarkdownRemark` && getNode(node.parent).internal.type === `File`) {
     if (node.frontmatter.slug) {

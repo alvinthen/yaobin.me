@@ -1,4 +1,5 @@
 import React from 'react';
+import { graphql } from 'gatsby'
 
 export default ({ siteMetadata, post }) => (
   <header className="header-container">

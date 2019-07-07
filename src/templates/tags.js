@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import { Link } from 'gatsby';
 import _ from 'lodash';
 
 import Helmet from "react-helmet";
@@ -68,8 +68,8 @@ const ListContainer = ({ children }) => (
   </div>
 )
 
-export default function Tags({ pathContext }) {
-  const { tags, posts, tag, slugPrefix, title } = pathContext;
+export default function Tags({ pageContext }) {
+  const { tags, posts, tag, slugPrefix, title } = pageContext;
   if (tag) {
     return (
       <Container>
