@@ -23,7 +23,7 @@ export default ({ post, siteMetadata }) => {
     }
   ];
   if (post) {
-    schemaOrgJSONLD.push([
+    schemaOrgJSONLD.push(
       {
         "@context": "http://schema.org",
         "@type": "BreadcrumbList",
@@ -50,9 +50,23 @@ export default ({ post, siteMetadata }) => {
           "@type": "ImageObject",
           url: image
         },
-        description
+        description,
+        author: siteMetadata.author,
+        publisher: {
+          '@type': 'Organization',
+          name: siteMetadata.author,
+          logo: {
+            '@type': 'ImageObject',
+            url: image
+          },
+        },
+        datePublished: post.frontmatter.dateTime,
+        dateModified: post.frontmatter.dateTime,
+        mainEntityOfPage: {
+          '@type': 'WebPage'
+        },
       }
-    ]);
+    );
   }
   return (
     <Helmet>
@@ -108,6 +122,7 @@ export const helmetFragment = graphql`
       slug
     }
     frontmatter {
+      dateTime: date
       excerpt
       title
       cover {
