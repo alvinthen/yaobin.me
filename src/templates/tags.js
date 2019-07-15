@@ -4,6 +4,8 @@ import _ from 'lodash';
 
 import Helmet from "react-helmet";
 
+import Layout from '../components/layout'
+
 const Container = ({ children }) => (
   <main id="main" className="main">
     {children}
@@ -68,52 +70,54 @@ const ListContainer = ({ children }) => (
   </div>
 )
 
-export default function Tags({ pageContext }) {
+export default function Tags({ pageContext, location }) {
   const { tags, posts, tag, slugPrefix, title } = pageContext;
   if (tag) {
     return (
-      <Container>
-        <Helmet>
-          <title>{title === 'Tags' ? 'Tag' : 'Category' }: {tag}</title>
-        </Helmet>
-        <Header title={title} tag={tag} />
-        <ListContainer>
-          {posts.map(({ id, frontmatter, fields }) => (
-            <li className="list-item" key={id}>
-              <article>
-                <div className="meta">
+      <Layout location={location}>
+        <Container>
+          <Helmet>
+            <title>{title === 'Tags' ? 'Tag' : 'Category' }: {tag}</title>
+          </Helmet>
+          <Header title={title} tag={tag} />
+          <ListContainer>
+            {posts.map(({ id, frontmatter, fields }) => (
+              <li className="list-item" key={id}>
+                <article>
+                  <div className="meta">
+                    <span>
+                    <span className="screen-reader">Posted on </span>
+                    <time dateTime={frontmatter.dateTime}>{frontmatter.date}</time>
+                    </span>
+                  </div>
+                  <header className="list-item-header">
+                    <h3 className="list-item-title">
+                      <Link to={fields.slug}>
+                        {frontmatter.title}
+                      </Link>
+                    </h3>
+                  </header>
+                </article>
+              </li>
+            ))}
+          </ListContainer>
+          <nav className="entry-nav-container">
+            <div className="entry-nav">
+              <div className="prev-entry">
+                <Link to={title === 'Tags' ? '/tags' : '/categories' }>
                   <span>
-                  <span className="screen-reader">Posted on </span>
-                  <time dateTime={frontmatter.dateTime}>{frontmatter.date}</time>
+                    <svg className="icon" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+                      <line x1="20" y1="12" x2="4" y2="12"></line>
+                      <polyline points="10 18 4 12 10 6"></polyline>
+                    </svg>
+                    &nbsp;Back to {title === 'Tags' ? 'Tags' : 'Categories' }
                   </span>
-                </div>
-                <header className="list-item-header">
-                  <h3 className="list-item-title">
-                    <Link to={fields.slug}>
-                      {frontmatter.title}
-                    </Link>
-                  </h3>
-                </header>
-              </article>
-            </li>
-          ))}
-        </ListContainer>
-        <nav className="entry-nav-container">
-          <div className="entry-nav">
-            <div className="prev-entry">
-              <Link to={title === 'Tags' ? '/tags' : '/categories' }>
-                <span>
-                  <svg className="icon" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
-                    <line x1="20" y1="12" x2="4" y2="12"></line>
-                    <polyline points="10 18 4 12 10 6"></polyline>
-                  </svg>
-                  &nbsp;Back to {title === 'Tags' ? 'Tags' : 'Categories' }
-                </span>
-              </Link>
+                </Link>
+              </div>
             </div>
-          </div>
-        </nav>
-      </Container>
+          </nav>
+        </Container>
+      </Layout>
     );
   }
   return (
