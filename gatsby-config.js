@@ -5,7 +5,7 @@ module.exports = {
     description: 'Software engineer from Malaysia, coding from backend to frontend, at any cafés. ',
     siteUrl: 'https://yaobin.me',
     twitter: '@yaobinme',
-    instagram: 'yaobin.me',
+    instagram: 'yaobin.dev',
     facebook: 'yaobin.me',
     email: 'me@yaobin.me',
     github: 'alvinthen',

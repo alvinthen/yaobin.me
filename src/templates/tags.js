@@ -86,7 +86,7 @@ export default function Tags({ pageContext, location }) {
                 <article>
                   <div className="meta">
                     <span>
-                    <span className="screen-reader">Posted on </span>
+                    <span className="screen-reader">Posted in</span>
                     <time dateTime={frontmatter.dateTime}>{frontmatter.date}</time>
                     </span>
                   </div>

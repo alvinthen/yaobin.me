@@ -32,7 +32,7 @@ class BlogIndex extends React.Component {
                           <article>
                             <div className="meta">
                               <span>
-                                <span className="screen-reader">Posted on </span>
+                                <span className="screen-reader">Posted in</span>
                                 <time dateTime={node.frontmatter.dateTime}>{node.frontmatter.date}</time>
                               </span>
                             </div>
