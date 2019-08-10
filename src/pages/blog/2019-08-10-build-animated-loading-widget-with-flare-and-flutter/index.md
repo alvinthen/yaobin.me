@@ -7,11 +7,6 @@ excerpt: Detailing my journey stepping into design and animation with Flare, dra
 cover: cover.png
 ---
 
-# TODO:
-
-1. Touch on lerpDouble
-1. Link to youtube, link youtube back to blog, linktr.ee to blog, insta it
-
 # Inspiration
 
 A week ago I posted an animated Switch widget on my [Instagram][my-insta], built with Flare and Flutter.
