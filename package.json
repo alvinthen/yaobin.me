@@ -7,6 +7,7 @@
     "url": "https://github.com/alvinthen/yaobin.me/issues"
   },
   "dependencies": {
+    "@raae/gatsby-remark-oembed": "^0.1.1",
     "@reach/router": "^1.2.1",
     "gatsby": "^2.13.6",
     "gatsby-plugin-catch-links": "^2.1.0",

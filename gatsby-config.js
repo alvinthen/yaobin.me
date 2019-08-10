@@ -26,6 +26,15 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: `@raae/gatsby-remark-oembed`,
+            options: {
+              usePrefix: ['insta'],
+              providers: {
+                include: ['Instagram']
+              },
+            },
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               linkImagesToOriginal: false
