@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import { graphql } from 'gatsby'
 
 export default ({ siteMetadata }) => (
@@ -49,6 +50,14 @@ export default ({ siteMetadata }) => (
           </ul>
         </nav>
       </div>
+
+      <a href="https://www.patreon.com/bePatron?u=23081624">
+        <img
+          style={{ maxWidth: '150px', height: 'auto' }}
+          src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png"
+        />
+      </a>
+
       <div className="copyright">
         <p>© 2018 Yaobin Then
           <br /># logo created by <a href="https://www.linkedin.com/in/ng-yi-yang-4946a710b/">Yiyang Ng</a>
