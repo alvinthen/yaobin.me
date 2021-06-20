@@ -9,9 +9,7 @@ cover: cover.png
 
 # Inspiration
 
-A week ago I posted an animated Switch widget on my [Instagram][my-insta], built with Flare and Flutter.
-
-`insta: https://www.instagram.com/p/B0iiDXkFqcn/`
+A week ago I posted an animated Switch widget on my [Instagram](https://www.instagram.com/p/B0iiDXkFqcn/), built with Flare and Flutter.
 
 I got inspired by a fellow follower to use Flare to build a animated Loading widget. So, challenge accepted, and I proceeded to spend a weekend to build the said animated Loading widget, not without references from other public Flare files.
 
@@ -176,9 +174,7 @@ bool advance(FlutterActorArtboard artboard, double elapsed) {
 
 That's it, now to move the wave, we just need to set `_targetY` to another different number and it will smoothly transition to it.
 
-Here's the result and a time-lapse of the work.
-
-`insta: https://www.instagram.com/p/B0u5PS8Fvpg/`
+[Here's the result and a time-lapse of the work.](https://www.instagram.com/p/B0u5PS8Fvpg/)
 
 If you find this helpful, leave a comment below to let me know. Or follow [my Instagram account][my-insta]. Or buy me a coffee at [Patreon][patreon].
 
