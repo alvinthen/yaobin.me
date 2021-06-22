@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import get from 'lodash/get'
-import ReactDisqusComments from 'react-disqus-comments';
+import { Disqus } from 'gatsby-plugin-disqus';
 import { urlize } from 'urlize';
 
 import BlogHeader from '../components/BlogHeader'
@@ -9,12 +9,6 @@ import Helmet from '../components/Helmet'
 import Layout from '../components/layout'
 
 export default class BlogPostTemplate extends React.Component {
-  componentDidMount() {
-    if (window.instgrm) {
-      window.instgrm.Embeds.process();
-    }
-  }
-
   render() {
     const { data, pageContext, location } = this.props;
     const { markdownRemark: post, site: { siteMetadata } } = data
@@ -80,7 +74,7 @@ export default class BlogPostTemplate extends React.Component {
                           <polyline points="10 18 4 12 10 6"></polyline>
                         </svg>
                         &nbsp;Previous
-                    </span>
+                      </span>
                       <span className="screen-reader">Previous post: </span>
                       {prev.frontmatter.title}
                     </Link>
@@ -93,7 +87,7 @@ export default class BlogPostTemplate extends React.Component {
                       {next.frontmatter.title}
                       <span>
                         Next&nbsp;
-                      <svg className="icon" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
+                        <svg className="icon" viewBox="0 0 24 24" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2">
                           <line x1="4" y1="12" x2="20" y2="12"></line>
                           <polyline points="14 6 20 12 14 18"></polyline>
                         </svg>
@@ -105,13 +99,15 @@ export default class BlogPostTemplate extends React.Component {
             </nav>
           }
           {process.env.NODE_ENV === 'production' &&
-            <ReactDisqusComments
-              className="comments-container"
-              shortname="yaobin"
-              identifier={post.id}
-              title={post.frontmatter.title}
-              url={`${siteMetadata.siteUrl}${post.fields.slug}`}
-            />
+            <div className="comments-container">
+              <Disqus
+                config={{
+                  url: `${siteMetadata.siteUrl}${post.fields.slug}`,
+                  identifier: post.id,
+                  title: post.frontmatter.title,
+                }}
+              />
+            </div>
           }
         </main>
       </Layout>
